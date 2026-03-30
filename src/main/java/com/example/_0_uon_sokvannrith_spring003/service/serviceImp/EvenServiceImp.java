@@ -1,9 +1,11 @@
 package com.example._0_uon_sokvannrith_spring003.service.serviceImp;
 
 import com.example._0_uon_sokvannrith_spring003.model.entity.Attendee;
-import com.example._0_uon_sokvannrith_spring003.model.request.AttendeeRequest;
+import com.example._0_uon_sokvannrith_spring003.model.entity.Event;
+import com.example._0_uon_sokvannrith_spring003.model.request.EventRequest;
 import com.example._0_uon_sokvannrith_spring003.repository.EvenRepository;
 import com.example._0_uon_sokvannrith_spring003.service.EventService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,28 +17,28 @@ public class EvenServiceImp implements EventService {
     public final EvenRepository evenRepository;
 
     @Override
-    public List<Attendee> getAllEvens(int page, int size) {
+    public List<Event> getAllEvents(int page, int size) {
         int offset = size * (page - 1);
-        return evenRepository.getAllEvens(offset, size);
+        return evenRepository.getAllEvents(offset, size);
     }
 
     @Override
-    public List<Attendee> getEvenById(Long attendeeId) {
-        return evenRepository.getEvenById(attendeeId);
+    public List<Event> getEventById(Long eventId) {
+        return evenRepository.getEventById(eventId);
     }
 
     @Override
-    public List<Attendee> postNewEven(AttendeeRequest request) {
-        return evenRepository.postNewEven(request);
+    public List<Event> postNewEvent(@Valid EventRequest request) {
+        return evenRepository.postNewEvent(request);
     }
 
     @Override
-    public List<Attendee> deleteEvenById(Long attendeeId) {
-        return evenRepository.deleteEvenById(attendeeId);
+    public List<Event> deleteEventById(Long eventId) {
+        return evenRepository.deleteEventById(eventId);
     }
 
     @Override
-    public List<Attendee> updateEvenById(Long attendeeId, AttendeeRequest request) {
-        return evenRepository.updateEvenById(attendeeId, request);
+    public List<Event> updateEventById(Long eventId, @Valid EventRequest request) {
+        return evenRepository.updateEventById(eventId, request);
     }
 }

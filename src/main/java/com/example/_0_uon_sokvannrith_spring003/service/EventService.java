@@ -1,19 +1,20 @@
 package com.example._0_uon_sokvannrith_spring003.service;
 
 import com.example._0_uon_sokvannrith_spring003.model.entity.Attendee;
-import com.example._0_uon_sokvannrith_spring003.model.request.AttendeeRequest;
+import com.example._0_uon_sokvannrith_spring003.model.entity.Event;
+import com.example._0_uon_sokvannrith_spring003.model.request.EventRequest;
 import jakarta.validation.Valid;
 
 import java.util.List;
 
 public interface EventService {
-    List<Attendee> getAllEvens(int page, int size);
+    List<Event> getAllEvents(int page, int size);
 
-    List<Attendee> getEvenById(Long attendeeId);
+    List<Event> getEventById(Long eventId);
 
-    List<Attendee> postNewEven(@Valid AttendeeRequest request);
+    List<Event> postNewEvent(@Valid EventRequest request);
 
-    List<Attendee> deleteEvenById(Long attendeeId);
+    List<Event> deleteEventById(Long eventId);
 
-    List<Attendee> updateEvenById(Long attendeeId, @Valid AttendeeRequest request);
+    List<Event> updateEventById(Long eventId, @Valid EventRequest request);
 }
